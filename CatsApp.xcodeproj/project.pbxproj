@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2CA54672994266F0063986A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA54662994266F0063986A /* AppDelegate.swift */; };
+		D2CA54692994266F0063986A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA54682994266F0063986A /* SceneDelegate.swift */; };
+		D2CA546B2994266F0063986A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA546A2994266F0063986A /* ViewController.swift */; };
+		D2CA5470299426730063986A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2CA546F299426730063986A /* Assets.xcassets */; };
+		D2CA5473299426730063986A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2CA5471299426730063986A /* LaunchScreen.storyboard */; };
+		D2CA547E299426740063986A /* CatsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA547D299426740063986A /* CatsAppTests.swift */; };
+		D2CA5488299426740063986A /* CatsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA5487299426740063986A /* CatsAppUITests.swift */; };
+		D2CA548A299426750063986A /* CatsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CA5489299426750063986A /* CatsAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2CA547A299426740063986A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2CA545B2994266F0063986A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2CA54622994266F0063986A;
+			remoteInfo = CatsApp;
+		};
+		D2CA5484299426740063986A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2CA545B2994266F0063986A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2CA54622994266F0063986A;
+			remoteInfo = CatsApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D2CA54632994266F0063986A /* CatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2CA54662994266F0063986A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2CA54682994266F0063986A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D2CA546A2994266F0063986A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2CA546F299426730063986A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2CA5472299426730063986A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D2CA5474299426730063986A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2CA5479299426740063986A /* CatsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2CA547D299426740063986A /* CatsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsAppTests.swift; sourceTree = "<group>"; };
+		D2CA5483299426740063986A /* CatsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2CA5487299426740063986A /* CatsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsAppUITests.swift; sourceTree = "<group>"; };
+		D2CA5489299426750063986A /* CatsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2CA54602994266F0063986A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5476299426740063986A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5480299426740063986A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2CA545A2994266F0063986A = {
+			isa = PBXGroup;
+			children = (
+				D2CA54652994266F0063986A /* CatsApp */,
+				D2CA547C299426740063986A /* CatsAppTests */,
+				D2CA5486299426740063986A /* CatsAppUITests */,
+				D2CA54642994266F0063986A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2CA54642994266F0063986A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2CA54632994266F0063986A /* CatsApp.app */,
+				D2CA5479299426740063986A /* CatsAppTests.xctest */,
+				D2CA5483299426740063986A /* CatsAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2CA54652994266F0063986A /* CatsApp */ = {
+			isa = PBXGroup;
+			children = (
+				D2CA5496299427C80063986A /* Application */,
+				D2CA546A2994266F0063986A /* ViewController.swift */,
+				D2CA546F299426730063986A /* Assets.xcassets */,
+				D2CA5471299426730063986A /* LaunchScreen.storyboard */,
+				D2CA5474299426730063986A /* Info.plist */,
+			);
+			path = CatsApp;
+			sourceTree = "<group>";
+		};
+		D2CA547C299426740063986A /* CatsAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2CA547D299426740063986A /* CatsAppTests.swift */,
+			);
+			path = CatsAppTests;
+			sourceTree = "<group>";
+		};
+		D2CA5486299426740063986A /* CatsAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D2CA5487299426740063986A /* CatsAppUITests.swift */,
+				D2CA5489299426750063986A /* CatsAppUITestsLaunchTests.swift */,
+			);
+			path = CatsAppUITests;
+			sourceTree = "<group>";
+		};
+		D2CA5496299427C80063986A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D2CA54662994266F0063986A /* AppDelegate.swift */,
+				D2CA54682994266F0063986A /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2CA54622994266F0063986A /* CatsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2CA548D299426750063986A /* Build configuration list for PBXNativeTarget "CatsApp" */;
+			buildPhases = (
+				D2CA545F2994266F0063986A /* Sources */,
+				D2CA54602994266F0063986A /* Frameworks */,
+				D2CA54612994266F0063986A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CatsApp;
+			productName = CatsApp;
+			productReference = D2CA54632994266F0063986A /* CatsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2CA5478299426740063986A /* CatsAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2CA5490299426750063986A /* Build configuration list for PBXNativeTarget "CatsAppTests" */;
+			buildPhases = (
+				D2CA5475299426740063986A /* Sources */,
+				D2CA5476299426740063986A /* Frameworks */,
+				D2CA5477299426740063986A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2CA547B299426740063986A /* PBXTargetDependency */,
+			);
+			name = CatsAppTests;
+			productName = CatsAppTests;
+			productReference = D2CA5479299426740063986A /* CatsAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2CA5482299426740063986A /* CatsAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2CA5493299426750063986A /* Build configuration list for PBXNativeTarget "CatsAppUITests" */;
+			buildPhases = (
+				D2CA547F299426740063986A /* Sources */,
+				D2CA5480299426740063986A /* Frameworks */,
+				D2CA5481299426740063986A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2CA5485299426740063986A /* PBXTargetDependency */,
+			);
+			name = CatsAppUITests;
+			productName = CatsAppUITests;
+			productReference = D2CA5483299426740063986A /* CatsAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2CA545B2994266F0063986A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					D2CA54622994266F0063986A = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					D2CA5478299426740063986A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D2CA54622994266F0063986A;
+					};
+					D2CA5482299426740063986A = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = D2CA54622994266F0063986A;
+					};
+				};
+			};
+			buildConfigurationList = D2CA545E2994266F0063986A /* Build configuration list for PBXProject "CatsApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2CA545A2994266F0063986A;
+			productRefGroup = D2CA54642994266F0063986A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2CA54622994266F0063986A /* CatsApp */,
+				D2CA5478299426740063986A /* CatsAppTests */,
+				D2CA5482299426740063986A /* CatsAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2CA54612994266F0063986A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CA5473299426730063986A /* LaunchScreen.storyboard in Resources */,
+				D2CA5470299426730063986A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5477299426740063986A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5481299426740063986A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2CA545F2994266F0063986A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CA546B2994266F0063986A /* ViewController.swift in Sources */,
+				D2CA54672994266F0063986A /* AppDelegate.swift in Sources */,
+				D2CA54692994266F0063986A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5475299426740063986A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CA547E299426740063986A /* CatsAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA547F299426740063986A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2CA5488299426740063986A /* CatsAppUITests.swift in Sources */,
+				D2CA548A299426750063986A /* CatsAppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2CA547B299426740063986A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2CA54622994266F0063986A /* CatsApp */;
+			targetProxy = D2CA547A299426740063986A /* PBXContainerItemProxy */;
+		};
+		D2CA5485299426740063986A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2CA54622994266F0063986A /* CatsApp */;
+			targetProxy = D2CA5484299426740063986A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D2CA5471299426730063986A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2CA5472299426730063986A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2CA548B299426750063986A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D2CA548C299426750063986A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2CA548E299426750063986A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D2CA548F299426750063986A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CatsApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D2CA5491299426750063986A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatsApp.app/CatsApp";
+			};
+			name = Debug;
+		};
+		D2CA5492299426750063986A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatsApp.app/CatsApp";
+			};
+			name = Release;
+		};
+		D2CA5494299426750063986A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CatsApp;
+			};
+			name = Debug;
+		};
+		D2CA5495299426750063986A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F5L4362QVT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = marat.CatsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CatsApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2CA545E2994266F0063986A /* Build configuration list for PBXProject "CatsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2CA548B299426750063986A /* Debug */,
+				D2CA548C299426750063986A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2CA548D299426750063986A /* Build configuration list for PBXNativeTarget "CatsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2CA548E299426750063986A /* Debug */,
+				D2CA548F299426750063986A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2CA5490299426750063986A /* Build configuration list for PBXNativeTarget "CatsAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2CA5491299426750063986A /* Debug */,
+				D2CA5492299426750063986A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2CA5493299426750063986A /* Build configuration list for PBXNativeTarget "CatsAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2CA5494299426750063986A /* Debug */,
+				D2CA5495299426750063986A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D2CA545B2994266F0063986A /* Project object */;
+}
