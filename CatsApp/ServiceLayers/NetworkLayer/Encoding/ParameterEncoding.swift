@@ -11,14 +11,6 @@ import Foundation
 
 typealias Parameters = [String: Any]
 
-// MARK: - NetworkError
-
-enum NetworkError: String, Error {
-    case parametersNil  = "Parameters are nil"
-    case encodingFailed = "Encoding was failed"
-    case missingURL     = "URL is nil"
-}
-
 // MARK: - ParameterEncoder
 
 protocol ParameterEncoder {
