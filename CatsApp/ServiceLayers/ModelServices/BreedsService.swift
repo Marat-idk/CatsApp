@@ -24,7 +24,7 @@ struct BreedsServiceImpl: BreedsService {
     }
     
     func fetchData(_ completion: @escaping (Result<Breeds, Error>) -> Void) {
-        router.request(with: MainEndPoint.breads) { data, respondse, error in
+        router.request(with: MainEndPoint.breads) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return

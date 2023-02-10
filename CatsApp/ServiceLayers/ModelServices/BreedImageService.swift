@@ -22,7 +22,7 @@ struct BreedImageServiceImpl: BreedImageService {
     }
     
     func fetchData(imageId: String, _ completion: @escaping (Result<String?, Error>) -> Void) {
-        router.request(with: MainEndPoint.images(id: imageId)) { data, respondse, error in
+        router.request(with: MainEndPoint.images(id: imageId)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return

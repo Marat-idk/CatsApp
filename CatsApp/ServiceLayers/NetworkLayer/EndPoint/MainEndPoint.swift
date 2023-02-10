@@ -47,6 +47,4 @@ extension MainEndPoint: EndPoint {
             return .request
         }
     }
-    
-    
 }
