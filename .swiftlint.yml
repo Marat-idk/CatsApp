@@ -14,3 +14,5 @@ identifier_name:
 disabled_rules:
   - trailing_whitespace
   - private_over_fileprivate
+opt_in_rules:
+- force_unwrapping
