@@ -12,13 +12,13 @@ import Foundation
 class Router: NetworkRouter {
     private var task: URLSessionDataTask?
     
-    func request(with endpoint: EndPoint, completion: @escaping networkRouterCompletion) {
+    func request(with endpoint: EndPoint, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
         
         do {
             let request = try self.buildRequest(with: endpoint)
-            print(request.url)
-            print(request.httpMethod)
+//            print(request.url)
+//            print(request.httpMethod)
             task = session.dataTask(with: request, completionHandler: { data, response, error in
                 completion(data, response, error)
             })
