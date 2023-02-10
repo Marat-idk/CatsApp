@@ -251,6 +251,7 @@
 				D2CA545F2994266F0063986A /* Sources */,
 				D2CA54602994266F0063986A /* Frameworks */,
 				D2CA54612994266F0063986A /* Resources */,
+				D2CA54C02995FF0A0063986A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -365,6 +366,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D2CA54C02995FF0A0063986A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D2CA545F2994266F0063986A /* Sources */ = {
