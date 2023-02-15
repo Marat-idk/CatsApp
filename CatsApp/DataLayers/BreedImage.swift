@@ -17,6 +17,8 @@ import Foundation
 struct BreedImage: Codable {
     let id: String?
     let url: String?
-    let breeds: Breeds?
+//    let breeds: Breeds?
     let width, height: Int?
 }
+
+typealias BreedImages = [BreedImage]

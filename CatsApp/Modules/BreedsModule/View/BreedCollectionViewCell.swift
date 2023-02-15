@@ -1,5 +1,5 @@
 //
-//  CatCollectionViewCell.swift
+//  BreedCollectionViewCell.swift
 //  CatsApp
 //
 //  Created by Marat on 10.02.2023.
