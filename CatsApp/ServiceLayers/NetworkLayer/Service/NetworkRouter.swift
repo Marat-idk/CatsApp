@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - networkRouterCompletion
+// MARK: - NetworkRouterCompletion
 
 typealias NetworkRouterCompletion = (_ data: Data?, _ respondse: URLResponse?, _ error: Error?) -> Void
 
