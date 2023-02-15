@@ -11,6 +11,7 @@ import UIKit
 
 protocol ModuleBuilder {
     static func createBreedsModule() -> UIViewController
+    static func createBreedDetailModule(with breed: Breed) -> UIViewController
 }
 
 // MARK: - ModuleBuilderImpl
@@ -21,6 +22,14 @@ enum ModuleBuilderImpl: ModuleBuilder {
         let view = BreedsViewController()
         let service = BreedsServiceImpl()
         let presenter = BreedsPresenter(view: view, service: service)
+        view.presenter = presenter
+        return view
+    }
+    
+    static func createBreedDetailModule(with breed: Breed) -> UIViewController {
+        let view = BreedDetailViewController()
+        let service = BreedImageServiceImpl()
+        let presenter = BreedDetailPresenter(breed: breed, view: view, service: service)
         view.presenter = presenter
         return view
     }

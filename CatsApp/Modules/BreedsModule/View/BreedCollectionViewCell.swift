@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class CatCollectionViewCell: UICollectionViewCell {
+final class BreedCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = String(describing: CatCollectionViewCell.self)
+    static let identifier = String(describing: BreedCollectionViewCell.self)
     
     public var breed: Breed? {
         didSet { self.set(with: breed) }
@@ -41,6 +41,7 @@ final class CatCollectionViewCell: UICollectionViewCell {
         let lbl = UILabel()
         lbl.font = .boldSystemFont(ofSize: 18)
         lbl.textAlignment = .left
+        lbl.adjustsFontSizeToFitWidth = true
         return lbl
     }()
     
@@ -72,6 +73,7 @@ final class CatCollectionViewCell: UICollectionViewCell {
         backView.backgroundColor = .clear
         originLabel.text = nil
         nameLabel.text = nil
+//        catImageView.kf.cancelDownloadTask()
     }
     
     // MARK: - setupConstraints
@@ -91,13 +93,16 @@ final class CatCollectionViewCell: UICollectionViewCell {
         }
         
         originLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(10)
             make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
         }
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(originLabel.snp.bottom).offset(5)
             make.leading.equalTo(originLabel)
+            make.trailing.equalTo(originLabel)
+            make.bottom.lessThanOrEqualToSuperview().offset(-10)
         }
     }
     
