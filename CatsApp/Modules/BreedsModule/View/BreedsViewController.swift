@@ -38,7 +38,7 @@ final class BreedsViewController: UIViewController {
         // расстояние между ячейками по гаризонтали
         layout.minimumInteritemSpacing = ItemSizeConstants.interitemSpace
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(CatCollectionViewCell.self, forCellWithReuseIdentifier: CatCollectionViewCell.identifier)
+        collectionView.register(BreedCollectionViewCell.self, forCellWithReuseIdentifier: BreedCollectionViewCell.identifier)
         collectionView.contentInset = UIEdgeInsets(
                                                 top: ItemSizeConstants.topIndent,
                                                 left: ItemSizeConstants.leftIndent,
@@ -66,7 +66,7 @@ extension BreedsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatCollectionViewCell.identifier, for: indexPath) as? CatCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BreedCollectionViewCell.identifier, for: indexPath) as? BreedCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -86,6 +86,15 @@ extension BreedsViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension BreedsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let breed = presenter?.breeds?[indexPath.row] else { return }
+        let detailVC = ModuleBuilderImpl.createBreedDetailModule(with: breed)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
 // MARK: - BreedsViewProtocol protocol implementation
 extension BreedsViewController: BreedsViewProtocol {
     func updateBreeds() {
@@ -93,11 +102,18 @@ extension BreedsViewController: BreedsViewProtocol {
     }
     
     func setBreedImage(at indexPath: IndexPath, with imgLink: String?) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CatCollectionViewCell else { return }
+        guard let cell = collectionView.cellForItem(at: indexPath) as? BreedCollectionViewCell else { return }
         
         guard let link = imgLink, let url = URL(string: link) else { return }
         
-        cell.catImageView.kf.setImage(with: url)
+        cell.catImageView.kf.setImage(
+                                with: url,
+                                options: [
+                                    .processor(DownsamplingImageProcessor(
+                                        size: cell.catImageView.bounds.size)),
+                                    .scaleFactor(UIScreen.main.scale),
+                                    .cacheOriginalImage
+                                ])
     }
 }
 

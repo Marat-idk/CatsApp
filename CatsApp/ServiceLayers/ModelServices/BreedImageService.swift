@@ -10,7 +10,7 @@ import Foundation
 // MARK: - BreedImageService
 
 protocol BreedImageService {
-    func fetchData(imageId: String, _ completion: @escaping (Result<String?, Error>) -> Void)
+    func fetchData(imageId: String, limit: Int, _ completion: @escaping (Result<String?, Error>) -> Void)
 }
 
 struct BreedImageServiceImpl: BreedImageService {
@@ -21,8 +21,8 @@ struct BreedImageServiceImpl: BreedImageService {
         self.router = router
     }
     
-    func fetchData(imageId: String, _ completion: @escaping (Result<String?, Error>) -> Void) {
-        router.request(with: MainEndPoint.images(id: imageId)) { data, _, error in
+    func fetchData(imageId: String, limit: Int, _ completion: @escaping (Result<String?, Error>) -> Void) {
+        router.request(with: MainEndPoint.imagesSearch(id: imageId, limit: limit)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return
@@ -35,8 +35,11 @@ struct BreedImageServiceImpl: BreedImageService {
             
             do {
                 let decoder = JSONDecoder()
-                let breedImg = try decoder.decode(BreedImage.self, from: data)
-                completion(.success(breedImg.url))
+                let breedImgs = try decoder.decode([BreedImage].self, from: data)
+
+                let breedImgsLink = breedImgs.compactMap { $0.url }
+                
+                completion(.success(breedImgsLink.first))
             } catch {
                 completion(.failure(APIError.canNotProcessData))
             }

@@ -8,14 +8,12 @@
 import Foundation
 
 // MARK: - BreedsViewProtocol
-
 protocol BreedsViewProtocol: AnyObject {
     func updateBreeds()
     func setBreedImage(at indexPath: IndexPath, with imgLink: String?)
 }
 
 // MARK: - BreedsViewPresenterProtocol
-
 protocol BreedsViewPresenterProtocol: AnyObject {
     init(view: BreedsViewProtocol, service: BreedsService)
     func getBreeds()
@@ -23,6 +21,7 @@ protocol BreedsViewPresenterProtocol: AnyObject {
     var breeds: Breeds? { get }
 }
 
+// MARK: - BreedsPresenter
 final class BreedsPresenter: BreedsViewPresenterProtocol {
     weak var view: BreedsViewProtocol?
     let networkService: BreedsService!

@@ -11,7 +11,7 @@ import Foundation
 
 enum MainEndPoint {
     case breads
-    case imagesSearch
+    case imagesSearch(id: String, limit: Int)
     case images(id: String)
 }
 
@@ -43,6 +43,16 @@ extension MainEndPoint: EndPoint {
     var task: HTTPTask {
         // FIXME: - FIX IF
         switch self {
+        case .imagesSearch(id: let id, limit: let limit):
+            return .requestParameters(
+                            bodyParameters: nil,
+                            urlParameters:
+                                [
+                                    "breed_ids": id,
+                                    "mime_types": ["png", "jpg"],
+                                    "limit": limit
+                                ]
+                            )
         default:
             return .request
         }
