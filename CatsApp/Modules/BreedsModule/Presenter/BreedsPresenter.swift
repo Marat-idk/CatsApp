@@ -17,8 +17,10 @@ protocol BreedsViewProtocol: AnyObject {
 protocol BreedsViewPresenterProtocol: AnyObject {
     init(view: BreedsViewProtocol, service: BreedsService)
     func getBreeds()
+    func getFilteredBreeds(with text: String)
     func getBreedImageLink(at indexPath: IndexPath, with imageId: String)
     var breeds: Breeds? { get }
+    var filteredBreeds: Breeds? { get }
 }
 
 // MARK: - BreedsPresenter
@@ -27,6 +29,10 @@ final class BreedsPresenter: BreedsViewPresenterProtocol {
     let networkService: BreedsService!
     
     private(set) var breeds: Breeds? {
+        didSet { view?.updateBreeds() }
+    }
+    
+    private(set) var filteredBreeds: Breeds? {
         didSet { view?.updateBreeds() }
     }
     
@@ -47,6 +53,12 @@ final class BreedsPresenter: BreedsViewPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func getFilteredBreeds(with text: String) {
+        filteredBreeds = breeds?.filter({ breed -> Bool in
+            return breed.name?.lowercased().contains(text.lowercased()) ?? false
+        })
     }
     
     func getBreedImageLink(at indexPath: IndexPath, with imageId: String) {
