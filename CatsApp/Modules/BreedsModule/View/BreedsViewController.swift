@@ -132,9 +132,8 @@ extension BreedsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let breeds = isFiltering ? presenter.filteredBreeds : presenter.breeds
         
-        guard let breed = breeds?[indexPath.row] else { return }
-        let detailVC = ModuleBuilderImpl.createBreedDetailModule(with: breed)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        let breed = breeds?[indexPath.row]
+        presenter.showDetail(with: breed)
     }
 }
 

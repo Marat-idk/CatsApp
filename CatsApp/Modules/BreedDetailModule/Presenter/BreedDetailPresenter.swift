@@ -14,7 +14,6 @@ protocol BreedDetailViewProtocol: AnyObject {
 
 protocol BreedDetailViewPresenterProtocol: AnyObject {
     var breed: Breed { get }
-    
     func getBreedImage()
 }
 
@@ -23,11 +22,13 @@ final class BreedDetailPresenter: BreedDetailViewPresenterProtocol {
     var breed: Breed
     weak var view: BreedDetailViewProtocol?
     let networkService: BreedImageService!
+    let router: RouterProtocol!
     
-    init(breed: Breed, view: BreedDetailViewProtocol, service: BreedImageService) {
+    init(breed: Breed, view: BreedDetailViewProtocol, service: BreedImageService, router: RouterProtocol) {
         self.breed = breed
         self.view = view
         self.networkService = service
+        self.router = router
     }
     
     func getBreedImage() {

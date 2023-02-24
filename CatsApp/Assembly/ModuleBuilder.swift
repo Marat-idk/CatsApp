@@ -8,28 +8,26 @@
 import UIKit
 
 // MARK: - ModuleBuilder
-
 protocol ModuleBuilder {
-    static func createBreedsModule() -> UIViewController
-    static func createBreedDetailModule(with breed: Breed) -> UIViewController
+    func createBreedsModule(router: RouterProtocol) -> UIViewController
+    func createBreedDetailModule(with breed: Breed, and router: RouterProtocol) -> UIViewController
 }
 
 // MARK: - ModuleBuilderImpl
-
-enum ModuleBuilderImpl: ModuleBuilder {
+class ModuleBuilderImpl: ModuleBuilder {
     
-    static func createBreedsModule() -> UIViewController {
+    func createBreedsModule(router: RouterProtocol) -> UIViewController {
         let view = BreedsViewController()
         let service = BreedsServiceImpl()
-        let presenter = BreedsPresenter(view: view, service: service)
+        let presenter = BreedsPresenter(view: view, service: service, router: router)
         view.presenter = presenter
         return view
     }
     
-    static func createBreedDetailModule(with breed: Breed) -> UIViewController {
+    func createBreedDetailModule(with breed: Breed, and router: RouterProtocol) -> UIViewController {
         let view = BreedDetailViewController()
         let service = BreedImageServiceImpl()
-        let presenter = BreedDetailPresenter(breed: breed, view: view, service: service)
+        let presenter = BreedDetailPresenter(breed: breed, view: view, service: service, router: router)
         view.presenter = presenter
         return view
     }
