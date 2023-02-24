@@ -18,14 +18,14 @@ protocol BreedsService {
 
 struct BreedsServiceImpl: BreedsService {
     
-    private let router: NetworkRouter
+    private let networkManager: NetworkManager
     
-    init(router: NetworkRouter = Router()) {
-        self.router = router
+    init(networkManager: NetworkManager = NetworkManagerImpl()) {
+        self.networkManager = networkManager
     }
     
     func fetchData(_ completion: @escaping (Result<Breeds, Error>) -> Void) {
-        router.request(with: MainEndPoint.breads) { data, _, error in
+        networkManager.request(with: MainEndPoint.breads) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return
@@ -47,7 +47,7 @@ struct BreedsServiceImpl: BreedsService {
     }
     
     func fecthImageLink(imageId: String, _ completion: @escaping (Result<String?, Error>) -> Void) {
-        router.request(with: MainEndPoint.images(id: imageId)) { data, _, error in
+        networkManager.request(with: MainEndPoint.images(id: imageId)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return

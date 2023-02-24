@@ -1,5 +1,5 @@
 //
-//  Router.swift
+//  NetworkManagerImpl.swift
 //  CatsApp
 //
 //  Created by Marat on 09.02.2023.
@@ -9,10 +9,10 @@ import Foundation
 
 // MARK: - Router
 
-class Router: NetworkRouter {
+class NetworkManagerImpl: NetworkManager {
     private var task: URLSessionDataTask?
     
-    func request(with endpoint: EndPoint, completion: @escaping NetworkRouterCompletion) {
+    func request(with endpoint: EndPoint, completion: @escaping NetworkManagerCompletion) {
         let session = URLSession.shared
         
         do {

@@ -15,24 +15,33 @@ protocol BreedsViewProtocol: AnyObject {
 
 // MARK: - BreedsViewPresenterProtocol
 protocol BreedsViewPresenterProtocol: AnyObject {
-    init(view: BreedsViewProtocol, service: BreedsService)
+    init(view: BreedsViewProtocol, service: BreedsService, router: RouterProtocol)
     func getBreeds()
+    func getFilteredBreeds(with text: String)
     func getBreedImageLink(at indexPath: IndexPath, with imageId: String)
     var breeds: Breeds? { get }
+    var filteredBreeds: Breeds? { get }
+    func showDetail(with breed: Breed?)
 }
 
 // MARK: - BreedsPresenter
 final class BreedsPresenter: BreedsViewPresenterProtocol {
     weak var view: BreedsViewProtocol?
     let networkService: BreedsService!
+    let router: RouterProtocol!
     
     private(set) var breeds: Breeds? {
         didSet { view?.updateBreeds() }
     }
     
-    init(view: BreedsViewProtocol, service: BreedsService) {
+    private(set) var filteredBreeds: Breeds? {
+        didSet { view?.updateBreeds() }
+    }
+    
+    init(view: BreedsViewProtocol, service: BreedsService, router: RouterProtocol) {
         self.view = view
         self.networkService = service
+        self.router = router
         getBreeds()
     }
     
@@ -49,6 +58,12 @@ final class BreedsPresenter: BreedsViewPresenterProtocol {
         }
     }
     
+    func getFilteredBreeds(with text: String) {
+        filteredBreeds = breeds?.filter({ breed -> Bool in
+            return breed.name?.lowercased().contains(text.lowercased()) ?? false
+        })
+    }
+    
     func getBreedImageLink(at indexPath: IndexPath, with imageId: String) {
         networkService.fecthImageLink(imageId: imageId) { result in
             switch result {
@@ -60,5 +75,10 @@ final class BreedsPresenter: BreedsViewPresenterProtocol {
                 }
             }
         }
+    }
+    
+    func showDetail(with breed: Breed?) {
+        guard let breed = breed else { return }
+        router.showDetail(breed: breed)
     }
 }

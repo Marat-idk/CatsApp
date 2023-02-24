@@ -15,14 +15,14 @@ protocol BreedImageService {
 
 struct BreedImageServiceImpl: BreedImageService {
     
-    private let router: NetworkRouter
+    private let networkManager: NetworkManager
     
-    init(router: NetworkRouter = Router()) {
-        self.router = router
+    init(networkManager: NetworkManager = NetworkManagerImpl()) {
+        self.networkManager = networkManager
     }
     
     func fetchData(imageId: String, limit: Int, _ completion: @escaping (Result<String?, Error>) -> Void) {
-        router.request(with: MainEndPoint.imagesSearch(id: imageId, limit: limit)) { data, _, error in
+        networkManager.request(with: MainEndPoint.imagesSearch(id: imageId, limit: limit)) { data, _, error in
             guard error == nil else {
                 completion(.failure(NetworkError.connectionFailed))
                 return

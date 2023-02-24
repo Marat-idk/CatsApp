@@ -15,6 +15,31 @@ final class BreedsViewController: UIViewController {
     
     private var collectionView: UICollectionView!
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let rc = UIRefreshControl()
+        rc.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        return rc
+    }()
+    
+    private lazy var searchController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        // обновления поиска будет получать текущий класс
+        sc.searchResultsUpdater = self
+        // разрешить взаимодействие с объектами результата поиска
+        sc.obscuresBackgroundDuringPresentation = false
+        sc.searchBar.placeholder = "Find your breed"
+        return sc
+    }()
+    
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -28,10 +53,16 @@ final class BreedsViewController: UIViewController {
     private func setupNavigationBar() {
         navigationItem.title = "Кошки"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.searchController = searchController
     }
     
     // MARK: - configureUI
     private func configureUI() {
+        configureCollectionView()
+    }
+    
+    // MARK: - configureCollectionView
+    private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         // расстояние между ячейками по вертикали
         layout.minimumLineSpacing = ItemSizeConstants.lineSpacing
@@ -45,6 +76,7 @@ final class BreedsViewController: UIViewController {
                                                 bottom: ItemSizeConstants.bottomIndent,
                                                 right: ItemSizeConstants.rigthIndent
                                                 )
+        collectionView.refreshControl = refreshControl
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -56,13 +88,20 @@ final class BreedsViewController: UIViewController {
         }
     }
     
+    @objc private func pullToRefresh(_ sender: UIRefreshControl) {
+        ImageCache.default.clearMemoryCache()
+        ImageCache.default.clearDiskCache { print("cleared") }
+        presenter.getBreeds()
+        sender.endRefreshing()
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
 extension BreedsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.breeds?.count ?? 0
+        return isFiltering ? (presenter.filteredBreeds?.count ?? 0) : (presenter.breeds?.count ?? 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,7 +109,9 @@ extension BreedsViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        guard let breed = presenter.breeds?[indexPath.row] else { return UICollectionViewCell() }
+        let breeds = isFiltering ? presenter.filteredBreeds : presenter.breeds
+        
+        guard let breed = breeds?[indexPath.row] else { return UICollectionViewCell() }
         
         cell.breed = breed
         presenter.getBreedImageLink(at: indexPath, with: breed.referenceImageID ?? "")
@@ -89,9 +130,17 @@ extension BreedsViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - UICollectionViewDelegate
 extension BreedsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let breed = presenter?.breeds?[indexPath.row] else { return }
-        let detailVC = ModuleBuilderImpl.createBreedDetailModule(with: breed)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        let breeds = isFiltering ? presenter.filteredBreeds : presenter.breeds
+        
+        let breed = breeds?[indexPath.row]
+        presenter.showDetail(with: breed)
+    }
+}
+
+extension BreedsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        presenter.getFilteredBreeds(with: searchText)
     }
 }
 
