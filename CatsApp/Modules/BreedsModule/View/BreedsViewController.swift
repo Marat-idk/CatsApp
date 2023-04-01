@@ -161,7 +161,9 @@ extension BreedsViewController: BreedsViewProtocol {
                                     .processor(DownsamplingImageProcessor(
                                         size: cell.catImageView.bounds.size)),
                                     .scaleFactor(UIScreen.main.scale),
-                                    .cacheOriginalImage
+                                    .cacheOriginalImage,
+                                    .transition(.fade(0.35)),
+                                    .forceTransition
                                 ])
     }
 }
