@@ -51,6 +51,7 @@ final class BreedsPresenter: BreedsViewPresenterProtocol {
             case .failure(let error):
                 print(error)
             case .success(let breeds):
+                sleep(10)
                 DispatchQueue.main.async {
                     self?.breeds = breeds
                 }

@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import SkeletonView
 
 final class BreedsViewController: UIViewController {
     
@@ -50,6 +51,11 @@ final class BreedsViewController: UIViewController {
         setupConstaints()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(baseColor: .silver), animation: nil, transition: .crossDissolve(0.25))
+    }
+    
     private func setupNavigationBar() {
         navigationItem.title = "Кошки"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -79,6 +85,8 @@ final class BreedsViewController: UIViewController {
         collectionView.refreshControl = refreshControl
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.isSkeletonable = true
+        collectionView.isUserInteractionDisabledWhenSkeletonIsActive = false
     }
     
     // MARK: - setupConstaints
@@ -137,6 +145,13 @@ extension BreedsViewController: UICollectionViewDelegate {
     }
 }
 
+extension BreedsViewController: SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        BreedCollectionViewCell.identifier
+    }
+}
+
+// MARK: - UISearchResultsUpdating
 extension BreedsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text else { return }
@@ -147,6 +162,8 @@ extension BreedsViewController: UISearchResultsUpdating {
 // MARK: - BreedsViewProtocol protocol implementation
 extension BreedsViewController: BreedsViewProtocol {
     func updateBreeds() {
+        collectionView.stopSkeletonAnimation()
+        view.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.25))
         collectionView.reloadData()
     }
     
@@ -161,7 +178,9 @@ extension BreedsViewController: BreedsViewProtocol {
                                     .processor(DownsamplingImageProcessor(
                                         size: cell.catImageView.bounds.size)),
                                     .scaleFactor(UIScreen.main.scale),
-                                    .cacheOriginalImage
+                                    .cacheOriginalImage,
+                                    .transition(.fade(0.35)),
+                                    .forceTransition
                                 ])
     }
 }

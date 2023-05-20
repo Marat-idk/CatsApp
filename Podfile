@@ -7,6 +7,7 @@ target 'CatsApp' do
 
   pod 'SnapKit'
   pod 'Kingfisher'
+  pod 'SkeletonView'
 
   target 'CatsAppTests' do
     inherit! :search_paths
