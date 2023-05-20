@@ -19,6 +19,7 @@ final class BreedCollectionViewCell: UICollectionViewCell {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
+        imgView.isSkeletonable = true
         return imgView
     }()
     
@@ -26,6 +27,7 @@ final class BreedCollectionViewCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = .white
         view.clipsToBounds = true
+        view.isSkeletonable = true
         return view
     }()
     
@@ -34,6 +36,9 @@ final class BreedCollectionViewCell: UICollectionViewCell {
         lbl.font = .systemFont(ofSize: 12)
         lbl.textColor = .lightGray
         lbl.textAlignment = .left
+        lbl.isSkeletonable = true
+        lbl.skeletonTextNumberOfLines = 2
+        lbl.linesCornerRadius = 6
         return lbl
     }()
     
@@ -48,9 +53,11 @@ final class BreedCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        isSkeletonable = true
+        contentView.isSkeletonable = true
         contentView.addSubviews(catImageView, backView)
         backView.addSubviews(originLabel, nameLabel)
-//        setupConstraints()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {

@@ -21,10 +21,14 @@ final class BreedDetailView: UIView {
         return view
     }()
     
-    let breedImageView: UIImageView = {
+    lazy var breedImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
+        let longPressTap = UILongPressGestureRecognizer(target: self, action: #selector(longPressTapped(_:)))
+//        longPressTap.minimumPressDuration = 1
+        imgView.addGestureRecognizer(longPressTap)
+        imgView.isUserInteractionEnabled = true
         return imgView
     }()
     
@@ -215,5 +219,23 @@ final class BreedDetailView: UIView {
             stackView.addArrangedSubview(imgView)
         }
         return stackView
+    }
+    
+    @objc private func longPressTapped(_ sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            let scale = UIScreen.main.bounds.width / breedImageView.bounds.width
+            UIView.animate(withDuration: 0.1, delay: 0.0) {
+                self.backView.bringSubviewToFront(self.breedImageView)
+                self.breedImageView.transform = CGAffineTransform(scaleX: scale, y: scale).translatedBy(x: 0, y: 100)
+                self.breedImageView.layer.cornerRadius = 0
+            }
+        case .cancelled, .ended, .failed:
+            breedImageView.transform = .identity
+            self.backView.sendSubviewToBack(breedImageView)
+            breedImageView.layer.cornerRadius = breedImageView.bounds.height / 2
+        default:
+            break
+        }
     }
 }
